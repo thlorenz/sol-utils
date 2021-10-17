@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+FILE=~/dev/mp/wlts/dev/dev-net.$1.json
+$DIR/js/_decode-privkey $2 > $FILE
+
+echo "Private key was written to $FILE"

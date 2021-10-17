@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+// Decodes private key, i.e. from phantom wallet
+// This allows adding the key via the phantom UI and adding it to our filesystem wallet.
+
+const bs58 = require('bs58')
+
+const address = process.argv[2]
+
+const keyBuf = bs58.decode(address)
+
+let ui8 = new Uint8Array(
+  keyBuf.buffer,
+  keyBuf.byteOffset,
+  keyBuf.byteLength / Uint8Array.BYTES_PER_ELEMENT
+)
+console.log(`[${ui8.toString()}]`)

@@ -1,0 +1,13 @@
+{
+  "name": "sol-utils",
+  "version": "0.0.0",
+  "description": "Solana utils",
+  "main": "index.js",
+  "repository": "git@github.com:thlorenz/sol-utils.git",
+  "author": "Thorsten Lorenz <thlorenz@gmx.de>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bs58": "^4.0.1"
+  }
+}
