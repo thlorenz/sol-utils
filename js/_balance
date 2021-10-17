@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+// @ts-check
+'use strict'
+
+const fs = require('fs')
+const path = require('path')
+
+const LAMPORTS_IN_SOL = 1e9
+const DOLLARS_IN_SOL = 160 // this will go up
+const balanceFile = path.join(__dirname, '_balance-last.txt')
+const currentBalance = process.argv[2]
+
+function previousBalance() {
+  try {
+    const txt = fs.readFileSync(balanceFile, 'utf8')
+    return parseFloat(txt)
+  } catch (err) {
+    return 0
+  }
+}
+
+const dollarFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})
+const solFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'SOL',
+})
+const englishFormatter = new Intl.NumberFormat('en-US')
+
+const prevBalance = previousBalance()
+const balance = parseFloat(currentBalance)
+const diff = prevBalance - balance
+
+const currentSols = solFormatter.format(balance)
+const currentDollars = dollarFormatter.format(balance * DOLLARS_IN_SOL)
+const lamports = englishFormatter.format(Math.round(diff * LAMPORTS_IN_SOL))
+const diffDollars = englishFormatter.format(diff * DOLLARS_IN_SOL)
+
+console.log(`Current Balance: ${currentSols} / ${currentDollars}`)
+console.log(`Balance Diff: ${lamports} lamports / $${diffDollars}`)
+fs.writeFileSync(balanceFile, currentBalance, 'utf8')

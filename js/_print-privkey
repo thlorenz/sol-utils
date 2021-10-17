@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const os = require("os");
+const arr = require(`${os.homedir()}/dev/mp/wlts/dev/dev-net.${
+  process.argv[2]
+}.json`);
+console.log(Buffer.from(arr).toString("base64").slice(0, -2));

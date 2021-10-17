@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# https://docs.solana.com/developing/clients/jsonrpc-api#getbalance
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+BALANCE=`solana balance`
+$DIR/js/_balance $BALANCE

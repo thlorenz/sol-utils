@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# https://docs.solana.com/cli/choose-a-cluster
+
+solana config set --url localhost 

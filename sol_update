@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# https://docs.solana.com/cli/install-solana-cli-tools#macos--linux
+
+solana-install update

@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+solana airdrop $1

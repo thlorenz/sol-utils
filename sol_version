@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+# https://docs.solana.com/cli/install-solana-cli-tools#macos--linux
+
+echo "+++ Solana Releases +++"
+ls -la ~/.local/share/solana/install/releases
+
+echo
+echo "+++ Active Release +++"
+ls -la ~/.local/share/solana/install/active_release
+
+echo
+echo "+++ Solana Version +++"
+solana --version
+
+echo
+echo "+++ Solana Cluster Version +++"
+solana cluster-version

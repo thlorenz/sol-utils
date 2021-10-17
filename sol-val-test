@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+
+# Instead of changing global config we could have a specific one for local test net
+# -C, --config Configuration file to use [default: /Users/thlorenz/.config/solana/cli/config.yml]
+$DIR/sol-net-loc && solana-test-validator
