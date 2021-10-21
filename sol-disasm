@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# objdump -disassemble -x86-asm-syntax=intel $1
+
+SOFILE=`ls target/bpfel-unknown-unknown/release/*.so`
+
+llvm-objdump                     \
+  --demangle                     \
+  --print-imm-hex                \
+  -g --full-leading-addr         \
+  --debug-vars --section-headers \
+  --symbolize-operands           \
+  --source --disassemble $SOFILE
