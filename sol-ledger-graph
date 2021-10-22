@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+DEFAULT_TEST_LEDGER=$DIR/test-ledger
+LEDGER_DIR=${1:-$DEFAULT_TEST_LEDGER}
+
+solana-ledger-tool -l $LEDGER_DIR graph /tmp/ledger.dot && \
+  dot -Tpdf /tmp/ledger.dot > /tmp/ledger.pdf &&           \
+  rm /tmp/ledger.dot &&                                    \
+  open /tmp/ledger.pdf
