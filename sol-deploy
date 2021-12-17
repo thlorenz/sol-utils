@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+SOFILE=`ls target/deploy/*.so`
+
+solana program deploy $SOFILE
